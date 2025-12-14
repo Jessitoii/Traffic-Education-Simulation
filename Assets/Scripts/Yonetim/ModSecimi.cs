@@ -11,11 +11,11 @@ public class ModSecimi : MonoBehaviour
     public GameObject girisPaneli;
     public GameObject xrRig;
 
-    [Header("Yürüme Kontrolü (BUNLARI YENÝ EKLEDÝK)")]
+    //[Header("Yürüme Kontrolü (BUNLARI YENÝ EKLEDÝK)")]
     // Karakterin yürümesini saðlayan script
-    public ActionBasedContinuousMoveProvider moveProvider;
+    //public ActionBasedContinuousMoveProvider moveProvider;
     // Karakterin dönmesini saðlayan script
-    public ActionBasedContinuousTurnProvider turnProvider;
+    //public ActionBasedContinuousTurnProvider turnProvider;
 
     void Start()
     {
@@ -35,13 +35,13 @@ public class ModSecimi : MonoBehaviour
         arabaOyuncusu.SetActive(true);
 
         // XR Rig'i arabaya sabitle
-        xrRig.transform.SetParent(arabaOyuncusu.transform);
+        /*xrRig.transform.SetParent(arabaOyuncusu.transform);
         xrRig.transform.localPosition = new Vector3(0, 1.0f, -0.2f); // Koltuk ayarý (Deneyerek bul)
         xrRig.transform.localRotation = Quaternion.identity;
-
+        */
         // KRÝTÝK HAMLE: Karakterin yürümesini ve dönmesini kapatýyoruz
-        if (moveProvider != null) moveProvider.enabled = false;
-        if (turnProvider != null) turnProvider.enabled = false;
+        //if (moveProvider != null) moveProvider.enabled = false;
+        //if (turnProvider != null) turnProvider.enabled = false;
 
         OyunuBaslat();
     }
@@ -53,13 +53,13 @@ public class ModSecimi : MonoBehaviour
         yayaOyuncusu.SetActive(true);
 
         // XR Rig'i yaya gövdesine sabitle
-        xrRig.transform.SetParent(yayaOyuncusu.transform);
+        /*xrRig.transform.SetParent(yayaOyuncusu.transform);
         xrRig.transform.localPosition = new Vector3(0, 1.6f, 0);
         xrRig.transform.localRotation = Quaternion.identity;
-
+        */
         // KRÝTÝK HAMLE: Karakter artýk yürüyebilir
-        if (moveProvider != null) moveProvider.enabled = true;
-        if (turnProvider != null) turnProvider.enabled = true;
+        //if (moveProvider != null) moveProvider.enabled = true;
+        //if (turnProvider != null) turnProvider.enabled = true;
 
         OyunuBaslat();
     }
