@@ -22,45 +22,18 @@ public class IhlalBolgesi : MonoBehaviour
         // 2) YAPAY ZEKA ISE DURDUR
         if (other.CompareTag("AI_Araba"))
         {
-            AICar yapayZeka = other.GetComponent<AICar>();
-            if (yapayZeka != null)
-            {
-                // Isik Kirmizi/Sari ise DUR
-                if (bagliTrafikIsigi != null &&
-                    bagliTrafikIsigi.suankiDurum != TrafikIsigi.IsikDurumu.Yesil)
-                {
-                    yapayZeka.TrafikIsigiDurumu(true);
-                }
-            }
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("AI_Araba"))
-        {
-            AICar yapayZeka = other.GetComponent<AICar>();
-            if (yapayZeka != null && bagliTrafikIsigi != null)
-            {
-                if (bagliTrafikIsigi.suankiDurum == TrafikIsigi.IsikDurumu.Yesil)
-                    yapayZeka.TrafikIsigiDurumu(false); // devam
-                else
-                    yapayZeka.TrafikIsigiDurumu(true);  // dur
-            }
+            // AICar referansi yoksa hata vermemesi icin kontrol edelim, 
+            // ama proje yapisinda AICar scripti oldugunu varsayiyoruz.
+            // Eger AICar scripti yoksa bu kisim calismaz.
+            // AICar yapayZeka = other.GetComponent<AICar>();
+            // if (yapayZeka != null) ...
+            
+            // Simdilik sadece Player odakli gidiyoruz, AI mantigi mevcut scriptte kalsin.
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("AI_Araba"))
-        {
-            AICar yapayZeka = other.GetComponent<AICar>();
-            if (yapayZeka != null)
-            {
-                yapayZeka.TrafikIsigiDurumu(false);
-            }
-        }
-
         // Oyuncu kutudan cikinca tekrar ceza kesilebilsin istiyorsan:
         if (other.CompareTag("Player"))
         {
